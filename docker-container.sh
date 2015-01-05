@@ -6,7 +6,6 @@ DIR=`dirname $FULLPATH`
 REPO=`basename $DIR`
 REPO=`echo $REPO | sed -r "s/docker\-//g"`
 __FQDN__=$REPO
-__PORT__=$REPO
 IMAGE=$USER/$REPO
 if [ "$1" != "" ];then
    	IMAGE=$IMAGE:$1
@@ -19,4 +18,3 @@ fi
 #docker run -d --name="mysql-data" typista/docker:mysql-data
 docker run -d --privileged --restart=always --name="$__FQDN__" --hostname="$__HOSTNAME__" \
 	$IMAGE
-
